@@ -1,0 +1,39 @@
+.alertbox-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+.alertbox-container {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 15px 30px 15px;
+  gap: 20px;
+  background: #222222;
+  color: white;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accept-button {
+  background-color: #434242;
+  border: none;
+  border-radius:3px;
+  padding: 10px 10px;
+  color: white;
+}

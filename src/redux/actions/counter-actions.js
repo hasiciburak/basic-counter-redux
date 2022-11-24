@@ -2,6 +2,7 @@ import {
   COUNT_UP,
   COUNT_DOWN,
   RESET_TO_ZERO,
+  TOGGLE_ALERT_BOX,
 } from "../actionTypes/action-types";
 
 const countUp = () => {
@@ -16,4 +17,7 @@ const resetToZero = () => {
   return { type: RESET_TO_ZERO };
 };
 
-export { countUp, countDown, resetToZero };
+const toggleAlertBox = (payload) => {
+  return { type: TOGGLE_ALERT_BOX, payload: payload };
+};
+export { countUp, countDown, resetToZero, toggleAlertBox };

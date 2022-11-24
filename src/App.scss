@@ -1,0 +1,41 @@
+$primary-color: #f3efe0;
+$secondary-color: #434242;
+$tertiary-color: #222222;
+.App {
+  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+}
+
+.App-header {
+  color: black;
+  & h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: $secondary-color;
+  }
+  & button {
+    border-radius: 3px;
+    border: none;
+    margin-top: 10px;
+    padding: 5px 15px;
+    font-size: 14px;
+    background-color: $secondary-color;
+    color: $primary-color;
+  }
+  h3 {
+    color: $tertiary-color;
+  }
+}
+
+.reset-btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
