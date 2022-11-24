@@ -18,7 +18,9 @@ function App() {
   const lottieRef = useRef();
   const dispatch = useDispatch();
   const animate = useAnimation();
-
+  const shakeArray = [
+    0, 30, 0, -30, 0, 30, 0, -30, 0, 0, 30, 0, -30, 0, 30, 0, -30, 0,
+  ];
   console.log(value);
 
   // Button Variant for Framer Motion's Properties
@@ -39,7 +41,7 @@ function App() {
 
   return (
     <>
-      <AlertBox />
+      <AlertBox buttonVariant={buttonVariant} />
       <div className="App">
         <header className="App-header">
           <h1>Water Tracker</h1>
@@ -56,8 +58,8 @@ function App() {
           <div className="button-row">
             <motion.button
               variants={buttonVariant}
-              whileTap="pressed"
               className="plus-btn"
+              whileTap="pressed"
               whileHover="hover"
               onClick={() => {
                 dispatch(countUp());
@@ -83,7 +85,7 @@ function App() {
                 if (value <= 0) {
                   // Shake Animation for the bottle
                   animate.start({
-                    rotate: [0, 30, 0, -30, 0, 30, 0, -30, 0],
+                    rotate: shakeArray,
                     transition: {
                       duration: 0.5,
                     },
