@@ -10,13 +10,14 @@ import { useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import waterAnimation from "./assets/animations/water-fill.json";
 import AlertBox from "./components/AlertBox";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 function App() {
   // REDUX REDUCER
   const value = useSelector((state) => state.counterReducer.value);
   const isOpened = useSelector((state) => state.counterReducer.isOpened);
   const lottieRef = useRef();
   const dispatch = useDispatch();
+  const animate = useAnimation();
 
   console.log(value);
 
@@ -42,12 +43,15 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>Water Tracker</h1>
-          <Player
-            autoplay
-            ref={lottieRef}
-            src={waterAnimation}
-            style={{ width: "20vw", maxWidth: "100%" }}
-          ></Player>
+          <motion.div animate={animate}>
+            <Player
+              autoplay
+              ref={lottieRef}
+              src={waterAnimation}
+              style={{ width: "300px", maxWidth: "100%" }}
+            ></Player>
+          </motion.div>
+
           <h3>Amount {value}</h3>
           <div className="button-row">
             <motion.button
@@ -77,6 +81,13 @@ function App() {
               className="minus-btn"
               onClick={() => {
                 if (value <= 0) {
+                  // Shake Animation for the bottle
+                  animate.start({
+                    rotate: [0, 30, 0, -30, 0, 30, 0, -30, 0],
+                    transition: {
+                      duration: 0.5,
+                    },
+                  });
                   dispatch(toggleAlertBox(true));
                 } else {
                   dispatch(countDown());
